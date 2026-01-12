@@ -1,0 +1,43 @@
+body {
+  background: #faf8ef;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  text-align: center;
+}
+
+.game2048-board {
+  display: grid;
+  grid-template-columns: repeat(4, 90px);
+  gap: 10px;
+  background: #bbada0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.game2048-tile {
+  width: 90px;
+  height: 90px;
+  background: #cdc1b4;
+  border-radius: 6px;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game2048-tile-2 { background: #eee4da; }
+.game2048-tile-4 { background: #ede0c8; }
+.game2048-tile-8 { background: #f2b179; color: #fff; }
+.game2048-tile-16 { background: #f59563; color: #fff; }
+.game2048-tile-32 { background: #f67c5f; color: #fff; }
+.game2048-tile-64 { background: #f65e3b; color: #fff; }
+.game2048-tile-128 { background: #edcf72; }
+.game2048-tile-256 { background: #edcc61; }
+.game2048-tile-512 { background: #edc850; }
+.game2048-tile-1024 { background: #edc53f; }
+.game2048-tile-2048 { background: #edc22e; }
