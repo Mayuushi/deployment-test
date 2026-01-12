@@ -54,6 +54,10 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+.game2048-wrapper {
+  touch-action: none;   
+}
+
 
 
 .game2048-tile-2 { background: #eee4da; }
