@@ -24,6 +24,7 @@ export const addRandomGame2048Tile = (board) => {
 
 export const moveGame2048Left = (board) => {
   let moved = false
+  let score = 0
 
   const newBoard = board.map(row => {
     let values = row.filter(v => v !== 0)
@@ -31,6 +32,7 @@ export const moveGame2048Left = (board) => {
     for (let i = 0; i < values.length - 1; i++) {
       if (values[i] === values[i + 1]) {
         values[i] *= 2
+        score += values[i] // Add the merged value to score
         values[i + 1] = 0
         moved = true
       }
@@ -43,7 +45,7 @@ export const moveGame2048Left = (board) => {
     return values
   })
 
-  return { board: newBoard, moved }
+  return { board: newBoard, moved, score }
 }
 
 export const rotateGame2048Board = (board) =>

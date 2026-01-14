@@ -5,7 +5,7 @@ import Game2048Tile from './Game2048Tile'
 import Game2048StatusOverlay from './Game2048StatusOverlay'
 
 export default function Game2048Board() {
-  const { board, status, handleKey, resetGame } = useGame2048()
+  const { board, status, score, handleKey, resetGame } = useGame2048()
 
   const { onTouchStart, onTouchEnd } = useGame2048Touch(handleKey)
 
@@ -15,12 +15,19 @@ export default function Game2048Board() {
   }, [handleKey])
 
   return (
-    <div
-      className="game2048-wrapper"
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
-      <div className="game2048-board">
+    <div className="relative bg-gradient-to-br from-amber-100 to-orange-200 p-6 rounded-2xl shadow-2xl border border-amber-200/50">
+      {/* Score Display */}
+      <div className="text-center mb-4">
+        <div className="inline-block bg-amber-800 text-white px-6 py-2 rounded-full font-bold text-xl shadow-lg">
+          Score: {score.toLocaleString()}
+        </div>
+      </div>
+
+      <div
+        className="relative bg-amber-800 p-4 rounded-xl shadow-inner grid grid-cols-4 gap-3 touch-none"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         {board.flat().map((value, index) => (
           <Game2048Tile key={index} value={value} />
         ))}
@@ -28,6 +35,7 @@ export default function Game2048Board() {
 
       <Game2048StatusOverlay
         status={status}
+        score={score}
         onRestart={resetGame}
       />
     </div>

@@ -16,6 +16,7 @@ export default function useGame2048() {
     )
   )
   const [status, setStatus] = useState(GAME_2048_STATUS.PLAYING)
+  const [score, setScore] = useState(0)
 
   const move = useCallback((direction) => {
     if (status !== GAME_2048_STATUS.PLAYING) return
@@ -33,6 +34,9 @@ export default function useGame2048() {
 
     const result = moveGame2048Left(workingBoard)
     if (!result.moved) return
+
+    // Add score from merged tiles
+    setScore(prevScore => prevScore + result.score)
 
     let finalBoard = result.board
 
@@ -68,7 +72,8 @@ export default function useGame2048() {
       )
     )
     setStatus(GAME_2048_STATUS.PLAYING)
+    setScore(0)
   }
 
-  return { board, status, handleKey, resetGame }
+  return { board, status, score, handleKey, resetGame }
 }

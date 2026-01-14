@@ -41,14 +41,17 @@ const TicTacToe = () => {
   }
 
   return (
-    <div className="ttt-container">
-      <h1>Tic Tac Toe (AI)</h1>
+    <div className="relative bg-gradient-to-br from-amber-100 to-orange-200 p-6 rounded-2xl shadow-2xl border border-amber-200/50 text-center">
+      <h1 className="text-4xl font-bold mb-8 drop-shadow-lg text-amber-900">Tic Tac Toe (AI)</h1>
 
       <Status winner={winner} draw={draw} />
 
       <Board board={board} onClick={handleClick} />
 
-      <button className="reset-btn" onClick={resetGame}>
+      <button
+        className="mt-5 px-8 py-3 bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold rounded-full cursor-pointer transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wide"
+        onClick={resetGame}
+      >
         Restart
       </button>
     </div>
